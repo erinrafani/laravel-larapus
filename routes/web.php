@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Author;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +39,5 @@ route::group(['prefix' => 'user', 'middleware' => ['auth']],
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('home2');
 
     });
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('author', AuthorController::class);
